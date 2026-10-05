@@ -1,0 +1,28 @@
+{
+  "name": "cinemark-santa-cruz",
+  "private": true,
+  "type": "module",
+  "description": "Consulta la cartelera vigente de Cinemark Ventura Mall, Santa Cruz de la Sierra.",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "check": "tsc --noEmit && tsx scripts/check-prices.ts",
+    "validate": "bdk validate",
+    "cartelera": "tsx scripts/cartelera.ts",
+    "tool": "bdk call consultar_cartelera --input",
+    "login": "bdk login",
+    "dev": "bdk dev",
+    "chat": "bdk run --message",
+    "eval": "bdk eval"
+  },
+  "dependencies": {
+    "@cursor/bdk": "0.2.18",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "tsx": "^4.20.6",
+    "typescript": "6.0.3"
+  }
+}

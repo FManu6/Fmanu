@@ -1,0 +1,27 @@
+name: cinemark-santa-cruz
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cinemark-santa-cruz
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: cinemark-santa-cruz/.nvmrc
+          cache: npm
+          cache-dependency-path: cinemark-santa-cruz/package-lock.json
+      - run: npm ci
+      - run: npm run check
+      - run: npm run validate
+      - run: npx bdk eval --list
+      - name: Consulta en vivo
+        continue-on-error: true
+        run: npm run cartelera -- --cuando semana

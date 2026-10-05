@@ -1,0 +1,10 @@
+{
+  "name": "fmanu",
+  "private": true,
+  "scripts": {
+    "setup": "npm ci --prefix cinemark-santa-cruz",
+    "check": "npm run check --prefix cinemark-santa-cruz && npm run validate --prefix cinemark-santa-cruz",
+    "cartelera": "npm run cartelera --prefix cinemark-santa-cruz --",
+    "dev": "npm run dev --prefix cinemark-santa-cruz"
+  }
+}

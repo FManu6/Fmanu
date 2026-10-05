@@ -15,6 +15,11 @@ const AYUDA = `Uso: npm run cartelera -- [opciones]
   --ayuda
 `;
 
+process.stdout.on("error", (error: NodeJS.ErrnoException) => {
+  if (error.code === "EPIPE") process.exit(0);
+  throw error;
+});
+
 const CUANDO: Cuando[] = ["hoy", "manana", "semana", "todas"];
 const FECHA = /^\d{4}-\d{2}-\d{2}$/;
 
